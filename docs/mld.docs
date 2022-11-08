@@ -1,0 +1,7 @@
+user(id, login, password, first_name, last_name)  )
+theme(id, name)
+quiz(id, title, #user(id))
+question(id, question, context, #quiz(id), #level(id), #answer(id))
+level(id, name)
+answer(id, description, #question(id))
+quiz_theme(#quiz(id), #theme(id))
