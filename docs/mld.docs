@@ -1,7 +1,15 @@
-user(id, login, password, first_name, last_name)  )
+user(id , login, password, first_name, last_name)  )
 theme(id, name)
 quiz(id, title, #user(id))
 question(id, question, context, #quiz(id), #level(id), #answer(id))
 level(id, name)
 answer(id, description, #question(id))
 quiz_theme(#quiz(id), #theme(id))
+
+
+
+
+Il y a 4 règles à respecter: -Pas de majuscule 
+                             -Singulier 
+                             -Pas d'espace mais plutôt en snake_case
+                             -Toujours avoir un id pour les tables
