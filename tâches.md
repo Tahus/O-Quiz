@@ -10,3 +10,7 @@
 - Je crée mon sous-dossier model dans un dossier app , avec une class par fichier (answer,level,question,quiz,tag,user).
 
 -J'install npm et les dépendances (pg, dotenv, express etc..).
+
+-je commence par ajouter les propriétés de la class Level en me basant sur ce que j'ai rempli dans ma table côté SQL.
+
+-Création d'un fichier/class CoreModel afin de la faire hériter à toutes les class .

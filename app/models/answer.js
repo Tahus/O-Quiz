@@ -1,4 +1,6 @@
-class Answer {
+const CoreModel = require('./coreModel');
+
+class Answer extends CoreModel {
 
 };
 

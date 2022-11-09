@@ -1,4 +1,6 @@
-class Quiz {
+const CoreModel = require('./coreModel');
+
+class Quiz extends CoreModel {
 
 };
 

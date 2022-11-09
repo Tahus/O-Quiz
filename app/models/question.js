@@ -1,4 +1,5 @@
-class Question{
+const CoreModel = require('./coreModel');
+class Question extends CoreModel {
 
 };
 
