@@ -2,6 +2,8 @@
 - Création de la BDD et du rôle : ```CREATE ROLE oquizz WITH LOGIN PASSWORD 'oquizz';```
 
 ```CREATE DATABASE oquizz OWNER oquizz;```
+
+
 - Création du fichier SQL grâce au mld
 - Je crée ma DB dans postgresql et j'importe les scripts sql.
 
@@ -14,3 +16,7 @@
 -je commence par ajouter les propriétés de la class Level en me basant sur ce que j'ai rempli dans ma table côté SQL.
 
 -Création d'un fichier/class CoreModel afin de la faire hériter à toutes les class .
+
+-je mets en place les getter/setters afin de ne modifier ou return les valeurs des propriétés uniquement dans les class
+
+- Dans le setter, je rajoute un test afin de vérifier que les données passées en argument soient du bon type.
