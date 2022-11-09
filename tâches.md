@@ -6,3 +6,7 @@
 - Je crée ma DB dans postgresql et j'importe les scripts sql.
 
 -Je crée mon fichier .env et le rempli avec les variables d'environnement.
+
+- Je crée mon sous-dossier model dans un dossier app , avec une class par fichier (answer,level,question,quiz,tag,user).
+
+-J'install npm et les dépendances (pg, dotenv, express etc..).
