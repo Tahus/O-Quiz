@@ -20,3 +20,5 @@
 -je mets en place les getter/setters afin de ne modifier ou return les valeurs des propriétés uniquement dans les class
 
 - Dans le setter, je rajoute un test afin de vérifier que les données passées en argument soient du bon type.
+
+-mise en place d'Active Record en parsant les données.
