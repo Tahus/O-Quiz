@@ -11,11 +11,24 @@ Level.findAll((error, levels) => {
     console.log(levels);
   };
 
-  Level.findById(3, (error, level) => {
+  Level.findById(1, (error, level) => {
     if (error) {
       console.log(error);
     } else {
-      console.log(level);
+      console.log(level.toString());
+    }
+  });
+
+  //insertion côté controller
+  const level = new Level({
+    name: 'Hard'
+  });
+
+  level.insert((error, result) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(result.toString());
     }
   });
 });

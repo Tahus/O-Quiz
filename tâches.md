@@ -21,4 +21,4 @@
 
 - Dans le setter, je rajoute un test afin de vérifier que les données passées en argument soient du bon type.
 
--mise en place d'Active Record en parsant les données.
+-mise en place d'Active Record avec un CRUD sur les class.

@@ -19,9 +19,7 @@ class CoreModel {
 
     //SETTER : modifie la valeur de la propriété id
     set id(id){
-        if (id !== "number") {
-           throw Error ("type invalide :(");
-        }
+       
        this.#id = id;
     }
 };
