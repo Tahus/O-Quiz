@@ -85,6 +85,8 @@ class Level extends CoreModel {
       }
     );
   }
+
+  
 }
 
 module.exports = Level;
