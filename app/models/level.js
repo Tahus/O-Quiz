@@ -34,7 +34,7 @@ class Level extends CoreModel {
 
     //au lieu de renvoyer la callback directement avec le resultat brut,
     //je fais transformer le resultat en instance de class pour après le renvoyer au controller
-    client.query("SELECT * FROM level", (err, result) => {
+    client.query(`SELECT * FROM level`, (err, result) => {
       // en cas d'erreur j'appelle la callback en lui passant une erreur
       // en second parametre je renvoies aucun resultat
       if (err) {
@@ -51,6 +51,20 @@ class Level extends CoreModel {
         }
 
         callback(null, levels);
+      }
+    });
+  };
+
+  static findById(id, callback) {
+    client.query (`SELECT * FROM level WHERE id = $1`, [id], (error, result) => {
+      //si erreur, j'appelle le traitement du controller en lui passant l'erreur
+      if (error){
+        callback (error, null);
+      }else {
+        //sinon il fait une instance du level recuperé en base
+        const level = new Level(result.rows [0]);
+        //puis il appelle le traitement du controller en lui passant l'instance de level parsé
+        callback (null, level);
       }
     });
   }
