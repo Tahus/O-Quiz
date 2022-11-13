@@ -31,4 +31,4 @@ Level.findAll((error, levels) => {
         console.log(result.toString());
     }
   });
-});
+}); 
