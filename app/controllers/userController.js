@@ -16,3 +16,12 @@ User.findAll((error, users) => {
     }
 });
 
+
+User.findById(1, (error, user) => {
+    if (error) {
+        console.log('Attention :', error);
+    } else {
+        console.log( 'user trouvé!', user.toString());
+    }
+});
+

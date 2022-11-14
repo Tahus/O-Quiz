@@ -29,7 +29,7 @@ class User extends CoreModel {
     return this.#firstname;
   }
 
-  get lastname () {
+  get lastname() {
     return this.#lastname;
   }
 
@@ -55,41 +55,42 @@ class User extends CoreModel {
     return `Email : ${this.email}
             Password: ${this.password}
             Firstname: ${this.firstname}
-            Lastname: ${this.lastname}
-    `
+            Lastname: ${this.lastname}`;
   }
-
 
   //Méthode Active Record
 
   // callback est la fonction du controller qui attends d'être excécutée
- static findAll(callback) {
+  static findAll(callback) {
     //une fois la requette sql est achevée, alors quelque chose sera exécutée (elle attends une erreur ou un resultat)
     //Je ne veux pas renvoyer les objets en dur donc je les parses
     client.query(`SELECT * FROM "user"`, (error, result) => {
-
-        //en cas d'erreur, j'appelle le traitement du controller en lui passant l'erreur et rien en resultat
-        if(error) callback(error, null);
-        else{
-            // sinon j'effectues le parse: je crée un array dans leqeul je push les instances
-            const users = [];
-            // pour pouvoir faire un instance sur chaque user je boucle sur le resultat en base de données
-            for (const user of result.rows) {
-                //Puis, je push dans le tableau une instance représentant l'user actuellement parcouru
-                users.push(new User(user));
-            }
-            //en cas de succès j'effectues le traitement du controller en lui passant le tableau mais pas d'erreur
-            callback(null, users);
+      //en cas d'erreur, j'appelle le traitement du controller en lui passant l'erreur et rien en resultat
+      if (error) callback(error, null);
+      else {
+        // sinon j'effectues le parse: je crée un array dans leqeul je push les instances
+        const users = [];
+        // pour pouvoir faire un instance sur chaque user je boucle sur le resultat en base de données
+        for (const user of result.rows) {
+          //Puis, je push dans le tableau une instance représentant l'user actuellement parcouru
+          users.push(new User(user));
         }
-    })
+        //en cas de succès j'effectues le traitement du controller en lui passant le tableau mais pas d'erreur
+        callback(null, users);
+      }
+    });
+  }
 
-    
-        
-    
- }
+  static findById(id, callback) {
 
-
+    client.query(`SELECT * FROM "user" WHERE id = $1`,[id], (error, result) => {
+        if (error){
+            callback(error, null);
+        } else {
+            callback(null, new User(result.rows[0]));
+        }
+    });
+  }
 }
 
 module.exports = User;
-
