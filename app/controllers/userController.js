@@ -25,3 +25,20 @@ User.findById(1, (error, user) => {
     }
 });
 
+
+const myUser = new User({
+    email: 'tahus@free.com',
+    password: '12345',
+    firstname: 'taha',
+    lastname: 'hassouna'
+});
+
+myUser.insert((error, user) =>{
+    if (error) {
+        console.log('Attention :', error);
+    } else {
+        console.log('------');
+        console.log(myUser.toString());
+        console.log('Mon id:', myUser.id);
+    }
+});
