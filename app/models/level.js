@@ -7,7 +7,7 @@ class Level extends CoreModel {
   //Le constructor : fonction speciale propre à chaque class, qui est appelée lorsqu'on instancie l'objet(new)
   //ici il aura pour but d'initialiser les propriétés de l'objet
   constructor(obj) {
-    //j'appelle le constructor de coreModel pour initialiser l'id
+    //j'appelle le constructor de coreModel pour initialiser l'id grâce au mot clef "super"
     super(obj);
     this.#name = obj.name;
   }
@@ -66,7 +66,7 @@ class Level extends CoreModel {
         callback(null, level);
       }
     });
-  }
+  };
 
   //Instertion d'un enregistrement via une methode d'instance classique, car je pars d'une instance déjà faite
   insert(callback) {
@@ -84,8 +84,27 @@ class Level extends CoreModel {
         }
       }
     );
-  }
+  };
 
+  update(callback) {
+    client.query(`UPDATE "level" SET name = $2, WHERE id = $1`, [this.id,this.name], (error, result) =>{
+        if (error) {
+            callback (error, null);
+        } else {
+            callback(null, this);
+        }
+    });
+  };
+
+  delete(callback) {
+    client.query(`DELETE FROM "level" WHERE id = $1`,[this.id], (error, result) =>{
+        if (error) {
+            callback(error, null);
+        } else {
+            callback(null, true);
+        }
+    });
+  };
   
 }
 

@@ -17,12 +17,21 @@ User.findAll((error, users) => {
 });
 
 
-User.findById(1, (error, user) => {
+User.findById(15, (error, user) => {
     if (error) {
         console.log('Attention :', error);
     } else {
         console.log( 'user trouvé!', user.toString());
+
+        user.delete((error, IsDelete) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("supprimé!");
+            }
+        });
     }
+
 });
 
 
@@ -44,7 +53,7 @@ addUser.insert((error, user) =>{
 });*/
 
 
-User.findById(15, (error, user) => {
+User.update(15, (error, user) => {
     if (error) {
         console.log(error);
     } else {
@@ -57,13 +66,7 @@ User.findById(15, (error, user) => {
                 console.log(user.toString());
             }
         });*/
-        user.delete((error, IsDelete) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log("supprimé!");
-            }
-        })
+        
     }
 });
 

@@ -66,8 +66,9 @@ class User extends CoreModel {
     //Je ne veux pas renvoyer les objets en dur donc je les parses
     client.query(`SELECT * FROM "user"`, (error, result) => {
       //en cas d'erreur, j'appelle le traitement du controller en lui passant l'erreur et rien en resultat
-      if (error) callback(error, null);
-      else {
+      if (error) {
+        callback(error, null);
+      }else {
         // sinon j'effectues le parse: je crée un array dans leqeul je push les instances
         const users = [];
         // pour pouvoir faire un instance sur chaque user je boucle sur le resultat en base de données

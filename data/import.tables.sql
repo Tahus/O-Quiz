@@ -20,8 +20,8 @@ DROP TABLE IF EXISTS "level",
 -- -----------------------------------------------------
 -- Table "level"
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS "level" (
-  -- une clé primaire est automatiquement NOT NULL. Pas besoin de le préciser.
+
+-- une clé primaire est automatiquement NOT NULL. Pas besoin de le préciser.
   -- 
   -- afin d'utiliser la génération automatique d'un identifiant on utilise une colonne de type serial (Attention désormais on utilisera plutôt GENERATED ALWAYS AS IDENTITY)
   -- https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_serial
@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS "level" (
   -- integer NOT NULL DEFAULT nextval('"level_id_seq"'::regclass)
   -- faisant référence à la sequence nommé level_id_seq, mais tout cela est automatique à la création.
   --
+CREATE TABLE IF NOT EXISTS "level" (
+  
   "id" serial PRIMARY KEY,
   "name" text NOT NULL
 );
