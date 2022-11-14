@@ -29,8 +29,8 @@ class User extends CoreModel {
     return this.#firstname;
   }
 
-  get lastname() {
-    this.#lastname;
+  get lastname () {
+    return this.#lastname;
   }
 
   //SETTERS: Je modifie les valeurs des propriétés privées
@@ -48,6 +48,15 @@ class User extends CoreModel {
 
   set lastname(value) {
     this.#lastname = value;
+  }
+
+  //La méthode va me retourner une chaine de caractères
+  toString() {
+    return `Email : ${this.email}
+            Password: ${this.password}
+            Firstname: ${this.firstname}
+            Lastname: ${this.lastname}
+    `
   }
 
 

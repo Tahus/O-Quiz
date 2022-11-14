@@ -8,6 +8,11 @@ User.findAll((error, users) => {
     }else {
         //si tout est OK le controller log l'instance de User qui a parsé coté Models
         console.log(users);
+        //Pour chaque instance, j'exécute sa méthode toString()
+        for (const user of users) {
+            console.log(user.toString());
+            console.log('------');
+        };
     }
 });
 
