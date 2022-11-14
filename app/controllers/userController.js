@@ -26,19 +26,36 @@ User.findById(1, (error, user) => {
 });
 
 
-const myUser = new User({
+const addUser = new User({
     email: 'tahus@free.com',
-    password: '12345',
+    password: '1234',
     firstname: 'taha',
     lastname: 'hassouna'
 });
 
-myUser.insert((error, user) =>{
+addUser.insert((error, user) =>{
     if (error) {
         console.log('Attention :', error);
     } else {
         console.log('------');
-        console.log(myUser.toString());
-        console.log('Mon id:', myUser.id);
+        console.log(addUser.toString());
+        console.log('Mon id:', addUser.id);
     }
 });
+
+
+User.findById(14, (error, user) => {
+    if (error) {
+        console.log(error);
+    } else {
+        user.lastname = 'Hassouna';
+        user.update((error, user) =>{
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('------');
+                console.log(user.toString());
+            }
+        });
+    }
+})

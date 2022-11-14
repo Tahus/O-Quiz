@@ -79,32 +79,50 @@ class User extends CoreModel {
         callback(null, users);
       }
     });
-  };
+  }
 
   static findById(id, callback) {
-
-    client.query(`SELECT * FROM "user" WHERE id = $1`,[id], (error, result) => {
-        if (error){
-            callback(error, null);
+    client.query(
+      `SELECT * FROM "user" WHERE id = $1`,
+      [id],
+      (error, result) => {
+        if (error) {
+          callback(error, null);
         } else {
-            callback(null, new User(result.rows[0]));
+          callback(null, new User(result.rows[0]));
         }
-    });
-  };
+      }
+    );
+  }
 
   // Méthode d'instance car je veux insérer un enregistrement en base par rapport aux infos de l'instance que j'utilise
   // Donc je vais appeler la méthode dessus grâce aux infos que j'ai donné à l'instance, ainsi je vais pouvoir m'en servir pour enregistrer les infos dans la bdd
   insert(callback) {
-    client.query (`INSERT INTO "user" (email, password, firstname, lastname) VALUES($1, $2, $3, $4) RETURNING id`,[this.email,this.password, this.firstname, this.lastname], (error, result) =>{
+    client.query(
+      `INSERT INTO "user" (email, password, firstname, lastname) VALUES($1, $2, $3, $4) RETURNING id`,
+      [this.email, this.password, this.firstname, this.lastname],
+      (error, result) => {
         if (error) {
-           callback(error, null);
+          callback(error, null);
         } else {
-            //Je mets à jour l'id de l'instance courante
-            this.id = result.rows[0].id;
+          //Je mets à jour l'id de l'instance courante
+          this.id = result.rows[0].id;
+          callback(null, this);
+        }
+      }
+    );
+  };
+
+   // Méthode d'instance
+   update(callback) {
+    client.query(`UPDATE "user" SET email = $2, password = $3, firstname = $4, lastname = $5 WHERE id = $1`, [this.id,this.email, this.password, this.firstname, this.lastname], (error, result) =>{
+        if (error) {
+            callback (error, null);
+        } else {
             callback(null, this);
         }
-    });
-  };
+    })
+  }
 }
 
 module.exports = User;
