@@ -26,7 +26,7 @@ User.findById(1, (error, user) => {
 });
 
 
-const addUser = new User({
+/*const addUser = new User({
     email: 'tahus@free.com',
     password: '1234',
     firstname: 'taha',
@@ -41,14 +41,14 @@ addUser.insert((error, user) =>{
         console.log(addUser.toString());
         console.log('Mon id:', addUser.id);
     }
-});
+});*/
 
 
-User.findById(14, (error, user) => {
+User.findById(15, (error, user) => {
     if (error) {
         console.log(error);
     } else {
-        user.lastname = 'Hassouna';
+        /*user.lastname = 'Hassouna';
         user.update((error, user) =>{
             if (error) {
                 console.log(error);
@@ -56,6 +56,14 @@ User.findById(14, (error, user) => {
                 console.log('------');
                 console.log(user.toString());
             }
-        });
+        });*/
+        user.delete((error, IsDelete) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("supprimé!");
+            }
+        })
     }
-})
+});
+

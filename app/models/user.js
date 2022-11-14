@@ -113,7 +113,7 @@ class User extends CoreModel {
     );
   };
 
-   // Méthode d'instance
+   // Méthode d'instance pour mettre à jour les infos de la bdd
    update(callback) {
     client.query(`UPDATE "user" SET email = $2, password = $3, firstname = $4, lastname = $5 WHERE id = $1`, [this.id,this.email, this.password, this.firstname, this.lastname], (error, result) =>{
         if (error) {
@@ -121,8 +121,18 @@ class User extends CoreModel {
         } else {
             callback(null, this);
         }
-    })
-  }
+    });
+  };
+
+  delete(callback) {
+    client.query(`DELETE FROM "user" WHERE id = $1`,[this.id], (error, result) =>{
+        if (error) {
+            callback(error, null);
+        } else {
+            callback(null, true);
+        }
+    });
+  };
 }
 
 module.exports = User;
