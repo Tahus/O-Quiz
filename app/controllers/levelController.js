@@ -1,59 +1,54 @@
 require("dotenv").config();
 const Level = require("../models/level");
 
+//Méthode d'instance
+const newLevel = new Level({
+  name: "Super Difficile"
+});
 
-
-/*
-Avant factoristation
-
-J'appelle la méthode AR de Level
-Ici pas besoin d'instancier la méthode avec une class new Level
-car findAll() est une methode static donc utilisable directement sur la class
-Level.findAll((error, levels) => {
+newLevel.insert((error, level)=>{
   if (error) {
     console.log(error);
-  } else {
-    console.log(levels);
-  };
+  } else { 
+    console.log(`${newLevel.name} a bien été ajouté à la bdd !`);
+  }
+});
 
-  Level.findById(1, (error, level) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(level.toString());
-    }
-  });
 
-  insertion côté controller
-  const level = new Level({
-    name: 'Hard'
-  });
+//Update level
 
-  level.insert((error, result) => {
-    if (error) {
+Level.findById(24, (error, level)=>{
+  if (error) {
+    console.log(error);
+  }else {
+
+    level.name = "Super Chaud";
+    level.update((error, level)=>{
+      if (error) {
         console.log(error);
-    } else {
-        console.log(result.toString());
-    }
-  });
-}); */
-/*
-Level.findAll((error, levels) => {
-  if (error) {
-    log(error);
-  } else {
-    console.log(levels);
+      } else {
+        console.log(`${level.name} à été modifié ! :)`);
+      }
+    })
   }
-});*/
-
-const level = new Level({
-  name: "Très dur"
 });
 
-level.insert((error, level)=>{
+
+//DELETE
+
+Level.findById(24, (error, level)=>{
   if (error) {
     console.log(error);
-  } else {
-    console.log(level.name);
+  }else {
+
+    level.delete((error, level)=>{
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(`${level.name} à été supprimé ! :)`);
+      }
+    })
   }
 });
+
+

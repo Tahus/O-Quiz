@@ -4,12 +4,12 @@ class Question extends CoreModel {
 
   static tableName = "question";
 
-  #question;
-  #anecdote;
-  #wiki;
-  #level_id;
-  #answer_id;
-  #quiz_id;
+  question;
+  anecdote;
+  wiki;
+  level_id;
+  answer_id;
+  quiz_id;
 
   constructor(obj) {
     super(obj);
@@ -23,53 +23,53 @@ class Question extends CoreModel {
 
   //GETTERS
   get question() {
-    return this.#question;
+    return this.question;
   };
 
   get anecdote() {
-    return this.#anecdote;
+    return this.anecdote;
   };
 
   get wiki() {
-    return this.#wiki;
+    return this.wiki;
   };
 
   get level_id() {
-    return this.#level_id;
+    return this.level_id;
   };
 
   get answer_id() {
-    return this.#answer_id;
+    return this.answer_id;
   };
 
   get quiz_id() {
-    return this.#quiz_id;
+    return this.quiz_id;
   };
 
   //SETTERS
 
   set question(value) {
-    this.#question = value;
+    this.question = value;
   };
 
   set anecdote(value) {
-    this.#anecdote = value;
+    this.anecdote = value;
   };
 
   set wiki(value) {
-    this.#wiki = value;
+    this.wiki = value;
   };
 
   set level_id(value) {
-    this.#level_id = value;
+    this.level_id = value;
   };
 
   set answer_id(value) {
-    this.#answer_id = value;
+    this.answer_id = value;
   };
 
   set quiz_id(value) {
-    this.#quiz_id = value;
+    this.quiz_id = value;
   };
 }
 

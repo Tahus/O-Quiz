@@ -55,28 +55,14 @@ class User extends CoreModel {
 
   //La méthode va me retourner une chaine de caractères
   toString() {
-    return `Email : ${this.email}
-            Password: ${this.password}
-            Firstname: ${this.firstname}
-            Lastname: ${this.lastname}`;
+    
+    return ` \nEmail : ${this.email}
+            \nPassword: ${this.password}
+            \nFirstname: ${this.firstname}
+            \nLastname: ${this.lastname} \n`;
+  
   };
-
-  //Méthode Active Record
-
-  // callback est la fonction du controller qui attends d'être excécutée
-  //  }else {
-        // sinon j'effectues le parse: je crée un array dans leqeul je push les instances
-        // }
-    //});
-  //}
-
   
-
-  
-
-   
-
-
 }
 
 module.exports = User;

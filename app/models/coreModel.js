@@ -107,7 +107,9 @@ class CoreModel {
   };
 
   update(callback) {
+    //Va accueillir les differents champs = $X
     const properties = [];
+    //Va accueillir les differentes valeurs des champs
     const values = [this.id];
     let count = 1;
 

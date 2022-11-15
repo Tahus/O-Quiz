@@ -43,15 +43,6 @@ class Level extends CoreModel {
 
  
 
-  update(callback) {
-    client.query(`UPDATE "level" SET name = $2, WHERE id = $1`, [this.id,this.name], (error, result) =>{
-        if (error) {
-            callback (error, null);
-        } else {
-            callback(null, this);
-        }
-    });
-  };
 
   
   
