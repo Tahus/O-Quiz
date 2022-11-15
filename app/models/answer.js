@@ -2,6 +2,9 @@ const CoreModel = require("./coreModel");
 const client = require("../database");
 
 class Answer extends CoreModel {
+
+  static tableName = "answer";
+
   #description;
   #question_id;
 

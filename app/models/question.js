@@ -1,6 +1,9 @@
 const CoreModel = require("./coreModel");
 const client = require("../database");
 class Question extends CoreModel {
+
+  static tableName = "question";
+
   #question;
   #anecdote;
   #wiki;
@@ -16,7 +19,7 @@ class Question extends CoreModel {
     this.level_id = obj.level_id;
     this.answer_id = obj.answer_id;
     this.quiz_id = obj.quiz_id;
-  }
+  };
 
   //GETTERS
   get question() {
