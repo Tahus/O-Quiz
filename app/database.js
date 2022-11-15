@@ -1,10 +1,11 @@
-//Import de la class Client du module pg
-const {Client} = require('pg');
+const {sequelize} = require('sequelize');
 
-//J'instancie la class pour pouvoir me connecter à la bdd
-const client = new Client(process.env.PG_URL);
+const sequelize = new sequelize(process.env.PG_URL,{
+    define: {
+        //l'option est à false car je n'ai pas de champs created_at et updated_ad dans mes tables
+        timestamps: false
+    }
+});
 
-//Connexion à la base
-client.connect()
 
-module.exports = client;
+module.exports = sequelize;
