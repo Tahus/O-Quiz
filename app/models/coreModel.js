@@ -171,6 +171,14 @@ class CoreModel {
       }
     })
   };
+
+  save(callback) {
+    if (this.id) {
+      this.update(callback);
+    } else {
+      this.insert(callback);
+    }
+  };
 }
 
 module.exports = CoreModel;

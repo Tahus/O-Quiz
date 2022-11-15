@@ -2,6 +2,7 @@ require("dotenv").config();
 const Level = require("../models/level");
 
 //Méthode d'instance
+/*
 const newLevel = new Level({
   name: "Super Difficile"
 });
@@ -49,6 +50,22 @@ Level.findById(24, (error, level)=>{
       }
     })
   }
-});
+}); */
+Level.findById(26, (error, lvl)=>{
+  if (error) {
+    console.log(error);
+  } else {
+    lvl.name="Ultra dur";
+    lvl.save((error, level) =>{
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(lvl);
+      }
+    })
+  }
+})
+
+
 
 
