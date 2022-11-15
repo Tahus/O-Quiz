@@ -104,7 +104,7 @@ class CoreModel {
         }
       }
     );
-  };
+  }
 
   update(callback) {
     //Va accueillir les differents champs = $X
@@ -118,27 +118,59 @@ class CoreModel {
       values.push(this[prop]);
     }
 
-    client.query(`UPDATE "${this.constructor.tableName}" SET ${properties} WHERE id = $1`,values,
+    client.query(
+      `UPDATE "${this.constructor.tableName}" SET ${properties} WHERE id = $1`,
+      values,
       (error, result) => {
         if (error) {
           callback(error, null);
         } else {
           callback(null, this);
         }
-      });
-  };
+      }
+    );
+  }
 
   delete(callback) {
-    client.query(`DELETE FROM "${this.constructor.tableName}" WHERE id = $1`,[this.id], (error, result) =>{
+    client.query(
+      `DELETE FROM "${this.constructor.tableName}" WHERE id = $1`,
+      [this.id],
+      (error, result) => {
         if (error) {
-            callback(error, null);
+          callback(error, null);
         } else {
-            callback(null, true);
+          callback(null, true);
         }
-    });
+      }
+    );
   };
 
+  static findBy(params,callback) {
+    const filters = [];
+    
+    const values = []
 
+    let count = 0;
+    //for in va boucler sur le nom des propriétés et non pas leurs valeurs
+    for (const param in params) {
+     filters.push(`"${param}" = $${++count}`);
+     //j'incère la valeur (params) de la propriété (param)
+     values.push(params[param]);
+    }
+
+    client.query(`SELECT * FROM "${this.tableName}" WHERE ${filters.join(' OR ')}`, values, (error, result) =>{
+      if (error) {
+        callback(error, null);
+      } else {
+        const instances = [];
+        for (const data of result.rows) {
+
+          instances.push(new this(data));
+        }
+        callback(null, instances);
+      }
+    })
+  };
 }
 
 module.exports = CoreModel;

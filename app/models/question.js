@@ -7,6 +7,7 @@ class Question extends CoreModel {
   question;
   anecdote;
   wiki;
+  status;
   level_id;
   answer_id;
   quiz_id;
@@ -16,6 +17,7 @@ class Question extends CoreModel {
     this.question = obj.question;
     this.anecdote = obj.anecdote;
     this.wiki = obj.wiki;
+    this.status = obj.status;
     this.level_id = obj.level_id;
     this.answer_id = obj.answer_id;
     this.quiz_id = obj.quiz_id;
@@ -32,6 +34,10 @@ class Question extends CoreModel {
 
   get wiki() {
     return this.wiki;
+  };
+
+  get status() {
+    return this.status;
   };
 
   get level_id() {
@@ -58,6 +64,10 @@ class Question extends CoreModel {
 
   set wiki(value) {
     this.wiki = value;
+  };
+
+  set status(value) {
+    this.status = value;
   };
 
   set level_id(value) {

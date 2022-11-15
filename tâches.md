@@ -13,12 +13,12 @@
 
 -J'install npm et les dépendances (pg, dotenv, express etc..).
 
--je commence par ajouter les propriétés de la class Level en me basant sur ce que j'ai rempli dans ma table côté SQL.
+-je commence par ajouter les propriétés des différentes class (Answer, Level, Question, Tag, User, Quiz) en me basant sur ce que j'ai rempli dans ma table côté SQL.
 
 -Création d'un fichier/class CoreModel afin de la faire hériter à toutes les class .
 
 -je mets en place les getter/setters afin de ne modifier ou return les valeurs des propriétés uniquement dans les class
 
-- Dans le setter, je rajoute un test afin de vérifier que les données passées en argument soient du bon type.
+-Dans le setter, je rajoute un test afin de vérifier que les données passées en argument soient du bon type. (Facultatif)
 
--mise en place d'Active Record avec un CRUD sur les class.
+-Mise en place d'Active Record, avec un CRUD sur les class depuis la class d'héritage coreModel().
