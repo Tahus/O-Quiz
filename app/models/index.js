@@ -58,5 +58,27 @@ Answer.belongsTo(Question, {
 Question;belongsTo(Answer, {
     as: 'good_answer',
     foreignKey : 'answer_id'
-})
+});
+
+
+
+
+//ASSOCIATION N:N
+
+Tag.belongsToMany(Quiz, {
+    as: 'quizzes',
+    through: 'quiz_has_tag',
+    foreignKey : 'tag_id',
+    otherKey : 'quiz_id'
+});
+
+Quiz.belongsToMany(Tag, {
+    as:'tags',
+    through: 'quiz_has_tag',
+    foreignKey : 'quiz_id',
+    otherKey : 'tag_id'
+});
+
+
+
 module.exports = {Answer, Question, User, Level, Quiz, Tag};
