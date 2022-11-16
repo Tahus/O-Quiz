@@ -15,7 +15,7 @@ Level.init({
   name: DataTypes.STRING,
   
 }, {
-  //Ici j'indique l'instance de sequelize(connexion à la bdd), et le nom de la tableà laquelle l'instance est raccordée.
+  //Ici j'indique l'instance de sequelize(connexion à la bdd), et le nom de la table à laquelle l'instance est raccordée.
   sequelize,
   tableName: 'level'
 });
