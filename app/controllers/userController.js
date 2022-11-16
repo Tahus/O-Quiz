@@ -25,7 +25,7 @@ User.create({
 
 }).catch((error) => {
     console.log(error);
-});*/
+});
 
 User.update({
  firstname: "Tahus",
@@ -35,6 +35,17 @@ User.update({
   }
 }).then((info) => {
   console.log(info);
+}).catch((error) =>{
+  console.log(error);
+});*/
+
+User.destroy({
+  where: {
+    id: 17
+  }
+}).then((log) =>{
+  console.log("User supprimé !");
+
 }).catch((error) =>{
   console.log(error);
 })
