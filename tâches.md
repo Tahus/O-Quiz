@@ -23,4 +23,6 @@
 
 -Mise en place d'Active Record, avec un CRUD sur les class depuis la class d'héritage coreModel().
 
--Mise en place du code avec l'ORM Sequelize. Je n'ai plus besoin de coreModel.js car Sequelize contient déjà les méthodes que j'ai crée dans coreModel.js
+-Mise en place du code avec l'ORM Sequelize. Je n'ai plus besoin de coreModel.js car Sequelize contient déjà les méthodes que j'ai crée dans coreModel.js.
+
+- création d'un fichier index.js dans le dossier model afin de coder les associations entre les tables sql.
