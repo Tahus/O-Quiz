@@ -1,48 +1,16 @@
-const CoreModel = require("./coreModel");
-const client = require("../database");
+const sequelize = require("../database");
+const { Model, DataTypes } = require("sequelize");
 
-class Quiz extends CoreModel {
+class Quiz extends Model {
 
-  static tableName ="quiz";
-
-  #title;
-  #description;
-  #user_id;
-
-  constructor(obj) {
-    super(obj);
-    this.title = obj.title;
-    this.description = obj.description;
-    this.user_id = obj.user_id;
-  };
-
-  //GETTERS
-
-  get title() {
-    return this.#title;
-  };
-
-  get description() {
-    return this.#description;
-  };
-
-  get user_id() {
-    return this.#user_id;
-  };
-
-  //SETTERS
-
-  set title(value) {
-    this.#title = value;
-  };
-
-  set description(value) {
-    this.#description = value;
-  };
-
-  set user_id(value) {
-    this.#user_id = value;
-  };
 }
+
+User.init({
+  title: DataTypes.STRING,
+  description: DataTypes.STRING,
+},{
+  sequelize,
+  tableName: "quiz"
+});
 
 module.exports = Quiz;

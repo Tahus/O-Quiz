@@ -1,26 +1,15 @@
-const CoreModel = require("./coreModel");
-const client = require("../database");
-class Tag extends CoreModel {
+const sequelize = require("../database");
+const { Model, DataTypes } = require("sequelize");
+class Tag extends Model {
+
   
-  static tableName = "tag";
-
-  #name;
-
-  constructor(obj) {
-    super(obj);
-    this.name = obj.name;
-  };
-
-  //GETTERS
-  get name() {
-    return this.#name;
-  };
-
-  //SETTERS
-
-  set name(value) {
-    this.#name = value;
-  };
 };
+
+User.init({
+  name: DataTypes.STRING
+},{
+  sequelize,
+  tableName: "tag"
+});
 
 module.exports = Tag;

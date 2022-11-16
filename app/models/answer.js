@@ -1,50 +1,19 @@
-const CoreModel = require("./coreModel");
-const client = require("../database");
+const sequelize = require("../database");
+const { Model, DataTypes } = require("sequelize");
 
-class Answer extends CoreModel {
+class Answer extends Model {
 
-  static tableName = "answer";
 
-  #description;
-  #question_id;
 
-  constructor(obj) {
-    super(obj);
-    this.description = obj.description;
-    this.question_id = obj.question_id;
-  }
-
-  //GETTERS
-  get description() {
-    return this.#description;
-  }
-
-  get question_id() {
-    return this.#question_id;
-  }
-
-  //SETTERS
-  set description(value) {
-    this.#description = value;
-  }
-
-  set question_id(value) {
-    this.#question_id = value;
-  }
-
-  static findAll(callback) {
-    client.query(`SELECT * FROM "answer"`, (error, result) => {
-      if (error) {
-        callback(error, null);
-      } else {
-        const answers = [];
-
-        for (const answer of result.rows) {
-          answers.push(new Answer(answer));
-        }
-      }
-    });
-  }
 }
+
+User.init({
+  description: DataTypes.STRING,
+  
+},{
+  sequelize,
+  tableName: "answer"
+});
+
 
 module.exports = Answer;
