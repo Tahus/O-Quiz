@@ -1,4 +1,4 @@
 require("dotenv").config();
-const Tag = require("../models/tag");
+const {Tag} = require("../models");
 
 

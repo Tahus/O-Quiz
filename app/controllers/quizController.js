@@ -1,3 +1,3 @@
 require("dotenv").config();
-const Quiz = require("../models/quiz");
+const {Quiz} = require("../models");
 

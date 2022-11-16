@@ -1,4 +1,4 @@
 require("dotenv").config();
-const Question = require("../models/question");
+const {Question} = require("../models");
 
 
