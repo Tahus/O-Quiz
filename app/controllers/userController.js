@@ -12,7 +12,7 @@ User.findAll().then(users => {
   console.log(users);
  }).catch(error => {
   console.log(error);
- });*/
+ });
 
 User.create({
   email: "taha@free.fr",
@@ -25,4 +25,17 @@ User.create({
 
 }).catch((error) => {
     console.log(error);
-});
+});*/
+
+User.update({
+ firstname: "Tahus",
+}, {
+  where: {
+    id: 17
+  }
+}).then((info) => {
+  console.log(info);
+}).catch((error) =>{
+  console.log(error);
+})
+
