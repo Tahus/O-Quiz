@@ -5,7 +5,7 @@ class Tag extends Model {
   
 };
 
-User.init({
+Tag.init({
   name: DataTypes.STRING
 },{
   sequelize,

@@ -6,7 +6,7 @@ class Question extends Model {
 
 }
 
-User.init({
+Question.init({
   question: DataTypes.STRING,
   anecdote: DataTypes.STRING,
   wiki: DataTypes.STRING

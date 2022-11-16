@@ -55,7 +55,7 @@ Answer.belongsTo(Question, {
 
 //ASSOCIATION 1:1
 
-Question;belongsTo(Answer, {
+Question.belongsTo(Answer, {
     as: 'good_answer',
     foreignKey : 'answer_id'
 });

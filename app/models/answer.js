@@ -7,7 +7,7 @@ class Answer extends Model {
 
 }
 
-User.init({
+Answer.init({
   description: DataTypes.STRING,
   
 },{
