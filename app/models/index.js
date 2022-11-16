@@ -55,5 +55,8 @@ Answer.belongsTo(Question, {
 
 //ASSOCIATION 1:1
 
-
+Question;belongsTo(Answer, {
+    as: 'good_answer',
+    foreignKey : 'answer_id'
+})
 module.exports = {Answer, Question, User, Level, Quiz, Tag};
